@@ -2,5 +2,16 @@
   margin-top: 20px;
 }
 #highLow{
-  margin-top: 20px;
+  margin-top: 10px;
+  display: none;
+
+}
+#cardDisplay{
+  height: 80px;
+  margin-top: 40px;
+}
+.icard{
+  padding: 20px;
+  border: 1px solid #ddd;
+
 }
