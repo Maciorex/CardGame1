@@ -1,8 +1,6 @@
 var startButton = document.getElementById('startButton');
 var message = document.getElementById('message');
 var money = 100;
-var score = 0;
-var lives = 3;
 var suits = ['spades', 'clubs', 'hearts', 'diams'];
 var numbers = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
 var cards = [];
@@ -45,9 +43,8 @@ function buildCards () {
 function cardDisplay () {
   var c = cardsRand[count];
   var cardColor = (c.icon === 'H' || c.icon === 'D') ? 'red' : 'black';
-
-
-  return '<div class="icard ' + c.suit +'"><div class="cardtop suit">'+ c.number +'<br></div><div class="cardmid suit"></div><div class="cardbottom suit">'+ c.number +'<br></div></div>';
+  var hpos = (count > 0) ? count * 40 + 40 : 40;
+  return '<div class="icard ' +c.suit+'" style="left:'+hpos+'px;"><div class="cardtop suit">'+c.number+'<br></div><div class="cardmid suit"></div><div class="cardbottom suit">'+c.number+'<br></div></div>';
 }
 
 function highOrLow (guess) {
@@ -57,24 +54,21 @@ function highOrLow (guess) {
   var dispResult = document.getElementById('dispResult');
   var scoreDisp = document.getElementById('score');
   count++;
-  if (count === 52) cardOutput.innerHTML += '<br> CHOOOPIE NI MOM JUŻ KART' ;
+  if (count === 51) cardOutput.innerHTML += '<br> CHOOOPIE NI MOM JUŻ KART' ;
   cardOutput.innerHTML += cardDisplay();
   if (guess === 'high' && oldCard < newCard) { result = true; }
   else if (guess === 'low' && oldCard > newCard) { result = true; }
   if (result) {
     dispResult.innerHTML = 'wyhrana';
-    score += 1;
   } else {
     dispResult.innerHTML = 'LOSER';
-    lives--;
-    if(lives === 0){endPlay()}
   }
-//  scoreDisp.innerHTML = 'Your score: ' + score + ' Lives left:' + lives;
+  if(count > 10){endPlay()}
 }
 
 function endPlay () {
   document.getElementById('highLow').style.display = 'none';
-  message.innerHTML = 'FRAJERZE JESTEŚ MARTWY HEHEHEHEH';
+  message.innerHTML = 'KUNIEC';
 }
 
 function shuffleArray (array) {

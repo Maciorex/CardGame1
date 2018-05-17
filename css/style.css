@@ -18,6 +18,7 @@
   background-color: white;
   position: absolute;
   display: inline-block;
+  left: 0px;
 }
 
 .hearts .suit::after{
