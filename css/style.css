@@ -1,7 +1,7 @@
 #start{
   margin-top: 20px;
 }
-#highLow{
+#highLow, #score{
   margin-top: 10px;
   display: none;
 

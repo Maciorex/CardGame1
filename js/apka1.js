@@ -20,6 +20,7 @@ function gameStart () {
   message.innerHTML = 'Game Started, leeeciiimyyy';
   startButton.style.display = 'none';
   document.getElementById('highLow').style.display = 'block';
+  document.getElementById('score').style.display = 'block';
   buildCards();
   shuffleArray(cards);
   cardOutput.innerHTML += cardDisplay();
@@ -66,7 +67,7 @@ function highOrLow (guess) {
     lives--;
     if(lives === 0){endPlay()}
   }
-  scoreDisp.innerHTML = 'Your score: ' + score + ' Lives left:' + lives;
+//  scoreDisp.innerHTML = 'Your score: ' + score + ' Lives left:' + lives;
 }
 
 function endPlay () {
