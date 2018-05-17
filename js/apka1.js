@@ -45,7 +45,9 @@ function buildCards () {
 function cardDisplay () {
   var c = cardsRand[count];
   var cardColor = (c.icon === 'H' || c.icon === 'D') ? 'red' : 'black';
-  return '<span class="icard" style="color:' + cardColor + '">' + c.number + ' &' + c.suit + ';</span>';
+
+
+  return '<div class="icard ' + c.suit +'"><div class="cardtop suit">'+ c.number +'<br></div><div class="cardmid suit"></div><div class="cardbottom suit">'+ c.number +'<br></div></div>';
 }
 
 function highOrLow (guess) {
